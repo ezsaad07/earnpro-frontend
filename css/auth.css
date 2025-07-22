@@ -1,0 +1,215 @@
+/* Authentication Styles */
+.auth-container {
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--gradient-primary);
+  position: relative;
+}
+
+.auth-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.auth-header .logo {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+}
+
+.auth-header .tagline {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.auth-form {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+}
+
+/* Password input with eye toggle */
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.password-toggle:hover {
+  color: var(--royal-blue);
+  background: rgba(41, 98, 255, 0.1);
+}
+
+.password-input-container input {
+  padding-right: 3.5rem;
+}
+
+/* Form Validation Styles */
+.form-group.error input {
+  border-color: var(--error-color);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-group.error .error-text {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group.error .error-text::before {
+  content: "⚠";
+  font-size: 0.75rem;
+}
+
+.form-group.success input {
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+/* Loading State for Auth Forms */
+.auth-form.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.auth-form .btn-primary.loading {
+  position: relative;
+}
+
+.auth-form .btn-primary.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  margin-top: 0.75rem;
+  height: 6px;
+  background: var(--border-color);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.password-strength-bar {
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+  border-radius: 3px;
+}
+
+.password-strength-bar.weak {
+  background: linear-gradient(90deg, var(--error-color), #ff6b6b);
+  width: 25%;
+}
+
+.password-strength-bar.medium {
+  background: linear-gradient(90deg, var(--warning-color), #ffd93d);
+  width: 60%;
+}
+
+.password-strength-bar.strong {
+  background: linear-gradient(90deg, var(--success-color), #51cf66);
+  width: 100%;
+}
+
+.password-strength-text {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.password-strength-text.weak {
+  color: var(--error-color);
+}
+.password-strength-text.medium {
+  color: var(--warning-color);
+}
+.password-strength-text.strong {
+  color: var(--success-color);
+}
+
+/* Enhanced auth switch */
+.auth-switch {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.auth-switch .link {
+  color: var(--royal-blue);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.auth-switch .link:hover {
+  color: #1e4db7;
+}
+
+.auth-switch .link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--royal-blue);
+  transition: width 0.3s ease;
+}
+
+.auth-switch .link:hover::after {
+  width: 100%;
+}
