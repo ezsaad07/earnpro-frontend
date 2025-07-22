@@ -199,6 +199,7 @@ class API {
 
 // Create global API instance
 const api = new API()
+window.api = api;
 
 // Utility functions
 function showMessage(message, type = "success") {
