@@ -5,7 +5,7 @@ class API {
     this.baseURL =
       window.location.hostname === "localhost"
         ? "http://localhost:3000/api"
-        : "https://earnpro-backend.railway.app/api"
+        : "https://earnpro-backend.railway.app//api"
 
     this.token = localStorage.getItem("authToken")
   }
