@@ -198,7 +198,7 @@ class API {
 }
 
 // Create global API instance
-const api = new API()
+const api = new API();
 window.api = api;
 
 // Utility functions
